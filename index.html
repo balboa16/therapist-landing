@@ -1599,10 +1599,6 @@
             border-color: var(--secondary);
         }
 
-        .quiz-option input {
-            display: none;
-        }
-
         .quiz-option-radio {
             width: 22px;
             height: 22px;
@@ -2792,11 +2788,10 @@
                     <h3 class="quiz-question-text">${q.text[lang]}</h3>
                     <div class="quiz-options">
                         ${q.options.map((opt, optIndex) => `
-                            <label class="quiz-option" onclick="selectOption(${qIndex}, ${optIndex}, ${opt.score})">
-                                <input type="radio" name="q${qIndex}" value="${optIndex}">
+                            <div class="quiz-option" onclick="selectOption(${qIndex}, ${optIndex}, ${opt.score})">
                                 <span class="quiz-option-radio"></span>
                                 <span class="quiz-option-text">${opt.text[lang]}</span>
-                            </label>
+                            </div>
                         `).join('')}
                     </div>
                 </div>
