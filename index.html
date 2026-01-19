@@ -1400,6 +1400,495 @@
             background: var(--secondary);
             color: white;
         }
+
+        /* ==================== QUIZ STYLES ==================== */
+        .quiz-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .quiz-trigger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(45, 90, 123, 0.3);
+        }
+
+        .quiz-trigger-icon {
+            font-size: 1.3rem;
+        }
+
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .quiz-modal.active {
+            display: flex;
+        }
+
+        .quiz-container {
+            background: var(--white);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            animation: quizSlideUp 0.4s ease;
+        }
+
+        @keyframes quizSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quiz-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px 30px;
+            position: relative;
+        }
+
+        .quiz-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .quiz-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .quiz-subtitle {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .quiz-progress {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        .quiz-progress-bar {
+            flex: 1;
+            height: 6px;
+            background: var(--bg-light);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .quiz-body {
+            padding: 30px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quiz-question {
+            display: none;
+            flex-direction: column;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .quiz-question.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .quiz-question-text {
+            font-family: 'Merriweather', serif;
+            font-size: 1.15rem;
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--bg-light);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            background: var(--white);
+            border-color: var(--secondary-light);
+        }
+
+        .quiz-option.selected {
+            background: var(--white);
+            border-color: var(--secondary);
+        }
+
+        .quiz-option input {
+            display: none;
+        }
+
+        .quiz-option-radio {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--text-light);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .quiz-option.selected .quiz-option-radio {
+            border-color: var(--secondary);
+            background: var(--secondary);
+        }
+
+        .quiz-option.selected .quiz-option-radio::after {
+            content: '✓';
+            color: white;
+            font-size: 0.8rem;
+        }
+
+        .quiz-option-text {
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .quiz-footer {
+            padding: 20px 30px;
+            border-top: 1px solid var(--bg-light);
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .quiz-btn {
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .quiz-btn-back {
+            background: var(--bg-light);
+            color: var(--text);
+        }
+
+        .quiz-btn-back:hover {
+            background: #e8ecef;
+        }
+
+        .quiz-btn-back:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quiz-btn-next {
+            background: var(--primary);
+            color: white;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .quiz-btn-next:hover:not(:disabled) {
+            background: var(--primary-dark);
+        }
+
+        .quiz-btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Quiz Result Screen */
+        .quiz-result {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .quiz-result.active {
+            display: flex;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .quiz-result-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .quiz-result-icon.mild {
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+        }
+
+        .quiz-result-icon.moderate {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .quiz-result-icon.high {
+            background: linear-gradient(135deg, #fab1a0 0%, #e17055 100%);
+        }
+
+        .quiz-result-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .quiz-result-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            max-width: 400px;
+        }
+
+        .quiz-result-recommendation {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+
+        .quiz-result-recommendation h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .quiz-result-recommendation p {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .quiz-result-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .quiz-result-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .quiz-restart {
+            margin-top: 15px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        /* Quiz intro screen */
+        .quiz-intro {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .quiz-intro-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .quiz-intro-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .quiz-intro-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .quiz-intro-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-intro-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .quiz-intro-feature span {
+            color: var(--secondary);
+        }
+
+        .quiz-start-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 480px) {
+            .quiz-trigger {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+
+            .quiz-trigger-text {
+                display: none;
+            }
+
+            .quiz-trigger {
+                padding: 15px;
+                border-radius: 50%;
+            }
+
+            .quiz-container {
+                border-radius: 20px 20px 0 0;
+                max-height: 95vh;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                max-width: 100%;
+            }
+
+            .quiz-header {
+                padding: 20px;
+            }
+
+            .quiz-body {
+                padding: 20px;
+            }
+
+            .quiz-footer {
+                padding: 15px 20px;
+            }
+
+            .quiz-intro-features {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1854,6 +2343,74 @@
         </div>
     </footer>
 
+    <!-- Quiz Trigger Button -->
+    <button class="quiz-trigger" onclick="openQuiz()" data-ru="Пройти тест" data-kg="Тестти өтүү">
+        <span class="quiz-trigger-icon">📋</span>
+        <span class="quiz-trigger-text" data-ru="Пройти тест" data-kg="Тестти өтүү">Пройти тест</span>
+    </button>
+
+    <!-- Quiz Modal -->
+    <div class="quiz-modal" id="quizModal">
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <button class="quiz-close" onclick="closeQuiz()">×</button>
+                <h2 class="quiz-title" data-ru="Экспресс-диагностика" data-kg="Экспресс-диагностика">Экспресс-диагностика</h2>
+                <p class="quiz-subtitle" data-ru="Оцените своё эмоциональное состояние" data-kg="Эмоционалдык абалыңызды баалаңыз">Оцените своё эмоциональное состояние</p>
+            </div>
+
+            <!-- Progress bar (hidden on intro) -->
+            <div class="quiz-progress" id="quizProgress" style="display: none;">
+                <div class="quiz-progress-bar">
+                    <div class="quiz-progress-fill" id="quizProgressFill" style="width: 0%"></div>
+                </div>
+                <span class="quiz-progress-text" id="quizProgressText">1/6</span>
+            </div>
+
+            <div class="quiz-body">
+                <!-- Intro Screen -->
+                <div class="quiz-intro" id="quizIntro">
+                    <div class="quiz-intro-icon">🧠</div>
+                    <h3 class="quiz-intro-title" data-ru="Узнайте, нужна ли вам консультация" data-kg="Консультация керекпи билиңиз">Узнайте, нужна ли вам консультация</h3>
+                    <p class="quiz-intro-text" data-ru="Ответьте на 6 простых вопросов, чтобы понять своё эмоциональное состояние и получить персональную рекомендацию." data-kg="Эмоционалдык абалыңызды түшүнүү жана жеке сунуш алуу үчүн 6 жөнөкөй суроого жооп бериңиз.">Ответьте на 6 простых вопросов, чтобы понять своё эмоциональное состояние и получить персональную рекомендацию.</p>
+                    <div class="quiz-intro-features">
+                        <div class="quiz-intro-feature">
+                            <span>⏱</span> <span data-ru="2 минуты" data-kg="2 мүнөт">2 минуты</span>
+                        </div>
+                        <div class="quiz-intro-feature">
+                            <span>🔒</span> <span data-ru="Анонимно" data-kg="Аноним">Анонимно</span>
+                        </div>
+                        <div class="quiz-intro-feature">
+                            <span>✓</span> <span data-ru="Бесплатно" data-kg="Акысыз">Бесплатно</span>
+                        </div>
+                    </div>
+                    <button class="quiz-start-btn" onclick="startQuiz()" data-ru="Начать тест" data-kg="Тестти баштоо">Начать тест</button>
+                </div>
+
+                <!-- Questions Container -->
+                <div id="quizQuestions"></div>
+
+                <!-- Result Screen -->
+                <div class="quiz-result" id="quizResult">
+                    <div class="quiz-result-icon" id="quizResultIcon">🌿</div>
+                    <h3 class="quiz-result-title" id="quizResultTitle"></h3>
+                    <p class="quiz-result-description" id="quizResultDescription"></p>
+                    <div class="quiz-result-recommendation">
+                        <h4 id="quizRecommendationTitle" data-ru="Рекомендуемый формат:" data-kg="Сунушталган формат:">Рекомендуемый формат:</h4>
+                        <p id="quizRecommendationText"></p>
+                    </div>
+                    <a href="#contact" class="quiz-result-cta" onclick="closeQuiz()" data-ru="Записаться с учётом результата" data-kg="Натыйжаны эске алуу менен жазылуу">Записаться с учётом результата</a>
+                    <button class="quiz-restart" onclick="restartQuiz()" data-ru="Пройти тест заново" data-kg="Тестти кайра өтүү">Пройти тест заново</button>
+                </div>
+            </div>
+
+            <!-- Footer with navigation (hidden on intro/result) -->
+            <div class="quiz-footer" id="quizFooter" style="display: none;">
+                <button class="quiz-btn quiz-btn-back" id="quizBtnBack" onclick="prevQuestion()" data-ru="Назад" data-kg="Артка">Назад</button>
+                <button class="quiz-btn quiz-btn-next" id="quizBtnNext" onclick="nextQuestion()" disabled data-ru="Далее" data-kg="Кийинки">Далее</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Success Modal -->
     <div class="modal" id="successModal">
         <div class="modal-content">
@@ -2011,6 +2568,423 @@
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
+        });
+
+        // ==================== QUIZ LOGIC ====================
+
+        /**
+         * Quiz Configuration (JSON-like structure for easy editing)
+         * Each question has:
+         * - id: unique identifier
+         * - text: question text (ru/kg)
+         * - options: array of answers with text and score
+         */
+        const quizConfig = {
+            // Questions array - easy to edit/add/remove
+            questions: [
+                {
+                    id: 'frequency',
+                    text: {
+                        ru: 'Как часто вы испытываете тревогу или беспокойство?',
+                        kg: 'Сиз канчалык деңгээлде тынчсызданасыз же кабатырланасыз?'
+                    },
+                    options: [
+                        { text: { ru: 'Редко, только в стрессовых ситуациях', kg: 'Сейрек, стресстик жагдайларда гана' }, score: 1 },
+                        { text: { ru: 'Несколько раз в неделю', kg: 'Жумасына бир нече жолу' }, score: 2 },
+                        { text: { ru: 'Почти каждый день', kg: 'Дээрлик күн сайын' }, score: 3 },
+                        { text: { ru: 'Постоянно, тревога не отпускает', kg: 'Туруктуу, тынчсыздануу коё бербейт' }, score: 4 }
+                    ]
+                },
+                {
+                    id: 'duration',
+                    text: {
+                        ru: 'Как давно вы замечаете эти переживания?',
+                        kg: 'Бул тажрыйбаларды канча убакыттан бери байкап жатасыз?'
+                    },
+                    options: [
+                        { text: { ru: 'Появились недавно (до 1 месяца)', kg: 'Жакында пайда болду (1 айга чейин)' }, score: 1 },
+                        { text: { ru: '1–3 месяца', kg: '1–3 ай' }, score: 2 },
+                        { text: { ru: '3–6 месяцев', kg: '3–6 ай' }, score: 3 },
+                        { text: { ru: 'Более полугода', kg: 'Жарым жылдан ашык' }, score: 4 }
+                    ]
+                },
+                {
+                    id: 'sleep',
+                    text: {
+                        ru: 'Как эти переживания влияют на ваш сон?',
+                        kg: 'Бул тажрыйбалар сиздин уйкуңузга кандай таасир этет?'
+                    },
+                    options: [
+                        { text: { ru: 'Сплю нормально', kg: 'Кадимкидей уктайм' }, score: 1 },
+                        { text: { ru: 'Иногда трудно заснуть', kg: 'Кээде уктоо кыйын болот' }, score: 2 },
+                        { text: { ru: 'Часто просыпаюсь ночью или рано утром', kg: 'Түнкүсүн же эрте таңда көп ойгоном' }, score: 3 },
+                        { text: { ru: 'Серьёзные проблемы со сном', kg: 'Уйку менен олуттуу көйгөйлөр' }, score: 4 }
+                    ]
+                },
+                {
+                    id: 'daily_life',
+                    text: {
+                        ru: 'Мешают ли переживания вашей работе или повседневной жизни?',
+                        kg: 'Тажрыйбалар жумушуңузга же күнүмдүк жашооңузга тоскоол болобу?'
+                    },
+                    options: [
+                        { text: { ru: 'Нет, справляюсь хорошо', kg: 'Жок, жакшы оңдоп жатам' }, score: 1 },
+                        { text: { ru: 'Немного снижается продуктивность', kg: 'Өндүрүмдүүлүк бир аз төмөндөйт' }, score: 2 },
+                        { text: { ru: 'Заметно влияет на работу и отношения', kg: 'Жумушка жана мамилелерге байкаларлык таасир этет' }, score: 3 },
+                        { text: { ru: 'Сильно мешает, трудно функционировать', kg: 'Абдан тоскоол болот, иштөө кыйын' }, score: 4 }
+                    ]
+                },
+                {
+                    id: 'physical',
+                    text: {
+                        ru: 'Есть ли у вас физические симптомы (учащённое сердцебиение, напряжение, головные боли)?',
+                        kg: 'Сизде физикалык белгилер барбы (жүрөктүн тез согушу, чыңалуу, баш ооруу)?'
+                    },
+                    options: [
+                        { text: { ru: 'Нет или очень редко', kg: 'Жок же абдан сейрек' }, score: 1 },
+                        { text: { ru: 'Иногда, в моменты стресса', kg: 'Кээде, стресс учурунда' }, score: 2 },
+                        { text: { ru: 'Регулярно беспокоят', kg: 'Туруктуу тынчсыздандырат' }, score: 3 },
+                        { text: { ru: 'Часто и интенсивно', kg: 'Көп жана интенсивдүү' }, score: 4 }
+                    ]
+                },
+                {
+                    id: 'prior_help',
+                    text: {
+                        ru: 'Обращались ли вы ранее за психологической помощью?',
+                        kg: 'Мурда психологиялык жардамга кайрылгансызбы?'
+                    },
+                    options: [
+                        { text: { ru: 'Нет, это первый раз', kg: 'Жок, бул биринчи жолу' }, score: 1 },
+                        { text: { ru: 'Читал(а) книги, статьи', kg: 'Китептерди, макалаларды окудум' }, score: 1 },
+                        { text: { ru: 'Да, но давно или не помогло', kg: 'Ооба, бирок көптөн бери же жардам берген жок' }, score: 2 },
+                        { text: { ru: 'Да, и хочу продолжить работу', kg: 'Ооба, иштөөнү уланткым келет' }, score: 2 }
+                    ]
+                }
+            ],
+
+            // Results configuration based on total score
+            results: {
+                mild: {
+                    minScore: 6,
+                    maxScore: 10,
+                    icon: '🌿',
+                    iconClass: 'mild',
+                    title: {
+                        ru: 'Лёгкий уровень стресса',
+                        kg: 'Жеңил деңгээлдеги стресс'
+                    },
+                    description: {
+                        ru: 'Похоже, вы справляетесь достаточно хорошо, но профилактическая консультация поможет укрепить ваши ресурсы и предотвратить накопление стресса. Это отличное время для работы над собой.',
+                        kg: 'Сиз жетиштүү деңгээлде оңдоп жаткандай көрүнөт, бирок алдын алуу консультациясы ресурстарыңызды чыңдоого жана стресстин топтолушуна жол бербөөгө жардам берет. Бул өзүңүз үчүн иштөөгө эң сонун убакыт.'
+                    },
+                    recommendation: {
+                        ru: 'Базовый тариф — 1 консультация',
+                        kg: 'Базалык тариф — 1 консультация'
+                    },
+                    tariff: 'base'
+                },
+                moderate: {
+                    minScore: 11,
+                    maxScore: 17,
+                    icon: '🌤️',
+                    iconClass: 'moderate',
+                    title: {
+                        ru: 'Умеренный уровень',
+                        kg: 'Орточо деңгээл'
+                    },
+                    description: {
+                        ru: 'Ваше состояние требует внимания. Регулярная работа с психотерапевтом поможет разобраться в причинах переживаний и найти эффективные способы с ними справляться. Не откладывайте заботу о себе.',
+                        kg: 'Сиздин абалыңыз көңүл бурууну талап кылат. Психотерапевт менен туруктуу иштөө тажрыйбалардын себептерин түшүнүүгө жана алар менен натыйжалуу күрөшүүнүн жолдорун табууга жардам берет. Өзүңүзгө камкордукту кийинкиге калтырбаңыз.'
+                    },
+                    recommendation: {
+                        ru: 'Стандарт — 5 консультаций с поддержкой',
+                        kg: 'Стандарт — колдоо менен 5 консультация'
+                    },
+                    tariff: 'standard'
+                },
+                high: {
+                    minScore: 18,
+                    maxScore: 24,
+                    icon: '🤝',
+                    iconClass: 'high',
+                    title: {
+                        ru: 'Требуется профессиональная поддержка',
+                        kg: 'Профессионалдык колдоо талап кылынат'
+                    },
+                    description: {
+                        ru: 'Ваши переживания достаточно интенсивны, и вам действительно нужна профессиональная помощь. Хорошая новость — с этим можно работать. Индивидуальный план терапии поможет вам шаг за шагом вернуть качество жизни.',
+                        kg: 'Сиздин тажрыйбаларыңыз абдан интенсивдүү жана сизге чындап профессионалдык жардам керек. Жакшы жаңылык — муну менен иштөөгө болот. Жеке терапия планы жашоо сапатыңызды кадам-кадам кайтарууга жардам берет.'
+                    },
+                    recommendation: {
+                        ru: 'Премиум — 10 консультаций + план терапии',
+                        kg: 'Премиум — 10 консультация + терапия планы'
+                    },
+                    tariff: 'premium'
+                }
+            }
+        };
+
+        // Quiz state
+        let quizState = {
+            currentQuestion: 0,
+            answers: [],
+            totalScore: 0,
+            started: false,
+            completed: false
+        };
+
+        /**
+         * Open quiz modal
+         */
+        function openQuiz() {
+            document.getElementById('quizModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            // Emit event
+            console.log('📊 Quiz Event: quiz_opened');
+        }
+
+        /**
+         * Close quiz modal
+         */
+        function closeQuiz() {
+            document.getElementById('quizModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        /**
+         * Start the quiz - transition from intro to first question
+         */
+        function startQuiz() {
+            quizState = {
+                currentQuestion: 0,
+                answers: [],
+                totalScore: 0,
+                started: true,
+                completed: false
+            };
+
+            // Hide intro, show progress and footer
+            document.getElementById('quizIntro').style.display = 'none';
+            document.getElementById('quizProgress').style.display = 'flex';
+            document.getElementById('quizFooter').style.display = 'flex';
+            document.getElementById('quizResult').classList.remove('active');
+
+            // Generate questions HTML
+            renderQuestions();
+
+            // Show first question
+            showQuestion(0);
+
+            // Emit event
+            console.log('📊 Quiz Event: quiz_start');
+        }
+
+        /**
+         * Render all questions HTML from config
+         */
+        function renderQuestions() {
+            const container = document.getElementById('quizQuestions');
+            const lang = currentLang;
+
+            container.innerHTML = quizConfig.questions.map((q, qIndex) => `
+                <div class="quiz-question" id="question-${qIndex}">
+                    <h3 class="quiz-question-text">${q.text[lang]}</h3>
+                    <div class="quiz-options">
+                        ${q.options.map((opt, optIndex) => `
+                            <label class="quiz-option" onclick="selectOption(${qIndex}, ${optIndex}, ${opt.score})">
+                                <input type="radio" name="q${qIndex}" value="${optIndex}">
+                                <span class="quiz-option-radio"></span>
+                                <span class="quiz-option-text">${opt.text[lang]}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /**
+         * Show specific question
+         */
+        function showQuestion(index) {
+            // Hide all questions
+            document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('active'));
+
+            // Show target question
+            const question = document.getElementById(`question-${index}`);
+            if (question) {
+                question.classList.add('active');
+            }
+
+            // Update progress
+            updateProgress(index);
+
+            // Update buttons
+            updateButtons(index);
+
+            // Restore selection if exists
+            if (quizState.answers[index] !== undefined) {
+                const options = question.querySelectorAll('.quiz-option');
+                options.forEach((opt, i) => {
+                    if (i === quizState.answers[index].optionIndex) {
+                        opt.classList.add('selected');
+                    }
+                });
+            }
+        }
+
+        /**
+         * Select an option
+         */
+        function selectOption(questionIndex, optionIndex, score) {
+            // Update state
+            quizState.answers[questionIndex] = { optionIndex, score };
+
+            // Update UI
+            const question = document.getElementById(`question-${questionIndex}`);
+            question.querySelectorAll('.quiz-option').forEach((opt, i) => {
+                opt.classList.toggle('selected', i === optionIndex);
+            });
+
+            // Enable next button
+            document.getElementById('quizBtnNext').disabled = false;
+        }
+
+        /**
+         * Go to next question or show results
+         */
+        function nextQuestion() {
+            const current = quizState.currentQuestion;
+            const total = quizConfig.questions.length;
+
+            if (current < total - 1) {
+                quizState.currentQuestion++;
+                showQuestion(quizState.currentQuestion);
+            } else {
+                // Last question - show results
+                showResults();
+            }
+        }
+
+        /**
+         * Go to previous question
+         */
+        function prevQuestion() {
+            if (quizState.currentQuestion > 0) {
+                quizState.currentQuestion--;
+                showQuestion(quizState.currentQuestion);
+            }
+        }
+
+        /**
+         * Update progress bar and text
+         */
+        function updateProgress(index) {
+            const total = quizConfig.questions.length;
+            const progress = ((index + 1) / total) * 100;
+
+            document.getElementById('quizProgressFill').style.width = `${progress}%`;
+            document.getElementById('quizProgressText').textContent = `${index + 1}/${total}`;
+        }
+
+        /**
+         * Update navigation buttons state
+         */
+        function updateButtons(index) {
+            const total = quizConfig.questions.length;
+            const lang = currentLang;
+
+            // Back button
+            document.getElementById('quizBtnBack').disabled = index === 0;
+
+            // Next button text
+            const nextBtn = document.getElementById('quizBtnNext');
+            if (index === total - 1) {
+                nextBtn.textContent = lang === 'ru' ? 'Узнать результат' : 'Натыйжаны билүү';
+            } else {
+                nextBtn.textContent = lang === 'ru' ? 'Далее' : 'Кийинки';
+            }
+
+            // Disable next if no answer selected
+            nextBtn.disabled = quizState.answers[index] === undefined;
+        }
+
+        /**
+         * Calculate score and show results
+         */
+        function showResults() {
+            // Calculate total score
+            quizState.totalScore = quizState.answers.reduce((sum, a) => sum + a.score, 0);
+            quizState.completed = true;
+
+            // Determine result level
+            let resultLevel;
+            const score = quizState.totalScore;
+
+            if (score <= quizConfig.results.mild.maxScore) {
+                resultLevel = 'mild';
+            } else if (score <= quizConfig.results.moderate.maxScore) {
+                resultLevel = 'moderate';
+            } else {
+                resultLevel = 'high';
+            }
+
+            const result = quizConfig.results[resultLevel];
+            const lang = currentLang;
+
+            // Update result UI
+            document.getElementById('quizResultIcon').textContent = result.icon;
+            document.getElementById('quizResultIcon').className = `quiz-result-icon ${result.iconClass}`;
+            document.getElementById('quizResultTitle').textContent = result.title[lang];
+            document.getElementById('quizResultDescription').textContent = result.description[lang];
+            document.getElementById('quizRecommendationText').textContent = result.recommendation[lang];
+
+            // Pre-select tariff in contact form
+            const tariffSelect = document.getElementById('tariff');
+            if (tariffSelect) {
+                tariffSelect.value = result.tariff;
+            }
+
+            // Hide questions and footer, show result
+            document.getElementById('quizQuestions').innerHTML = '';
+            document.getElementById('quizProgress').style.display = 'none';
+            document.getElementById('quizFooter').style.display = 'none';
+            document.getElementById('quizResult').classList.add('active');
+
+            // Emit events
+            console.log('📊 Quiz Event: quiz_complete', { totalScore: score });
+            console.log(`📊 Quiz Event: quiz_result_level = ${resultLevel}`, {
+                level: resultLevel,
+                score: score,
+                recommendedTariff: result.tariff
+            });
+        }
+
+        /**
+         * Restart the quiz
+         */
+        function restartQuiz() {
+            document.getElementById('quizResult').classList.remove('active');
+            document.getElementById('quizIntro').style.display = 'block';
+            document.getElementById('quizProgress').style.display = 'none';
+            document.getElementById('quizFooter').style.display = 'none';
+
+            quizState = {
+                currentQuestion: 0,
+                answers: [],
+                totalScore: 0,
+                started: false,
+                completed: false
+            };
+
+            console.log('📊 Quiz Event: quiz_restart');
+        }
+
+        // Close quiz on outside click
+        document.getElementById('quizModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuiz();
+            }
         });
     </script>
 </body>
