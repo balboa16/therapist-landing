@@ -1459,6 +1459,8 @@
             overflow: hidden;
             box-shadow: 0 25px 80px rgba(0,0,0,0.3);
             animation: quizSlideUp 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         @keyframes quizSlideUp {
@@ -1477,6 +1479,7 @@
             color: white;
             padding: 25px 30px;
             position: relative;
+            flex-shrink: 0;
         }
 
         .quiz-close {
@@ -1544,9 +1547,11 @@
 
         .quiz-body {
             padding: 30px;
-            min-height: 300px;
+            min-height: 200px;
             display: flex;
             flex-direction: column;
+            flex: 1;
+            overflow-y: auto;
         }
 
         .quiz-question {
@@ -1635,6 +1640,7 @@
             display: flex;
             justify-content: space-between;
             gap: 15px;
+            flex-shrink: 0;
         }
 
         .quiz-btn {
