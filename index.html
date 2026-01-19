@@ -29,6 +29,16 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        /* Smooth scrolling and pleasant feel */
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
         }
 
         body {
@@ -547,6 +557,7 @@
 
         .pricing-card.popular {
             border: 3px solid var(--secondary);
+            padding-top: 55px;
         }
 
         .popular-badge {
@@ -560,6 +571,7 @@
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         .pricing-header {
@@ -1264,6 +1276,90 @@
                 width: 100%;
                 justify-content: center;
             }
+        }
+
+        /* Pleasant scrolling and micro-interactions */
+        section {
+            position: relative;
+        }
+
+        /* Smooth hover transitions for all interactive elements */
+        a, button, .btn, .problem-card, .pricing-card, .testimonial, .faq-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Subtle parallax-like effect on sections */
+        .hero, .why-me, .contact {
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* Card lift effect */
+        .problem-card:hover, .testimonial:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Button press effect */
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Floating cards subtle animation */
+        .floating-card {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card.experience {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Smooth focus states */
+        input:focus, select:focus, textarea:focus {
+            transform: scale(1.01);
+        }
+
+        /* Stats counter effect on hover */
+        .stat:hover .stat-number {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-number {
+            transition: transform 0.3s ease;
+        }
+
+        /* Achievement cards glow on hover */
+        .achievement:hover {
+            box-shadow: 0 0 30px rgba(232, 184, 109, 0.3);
+        }
+
+        /* Smoother scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--secondary);
+            color: white;
         }
     </style>
 </head>

@@ -3,7 +3,14 @@
     "allow": [
       "Bash(start \"\" \"C:\\\\Users\\\\User\\\\therapist-landing\\\\index.html\")",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: therapist landing page\n\nLanding page for psychotherapist Gulmira Bazarbaeva\n- Responsive design\n- Three pricing tiers\n- Contact form\n- Testimonials section\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:therapist-landing.vercel.app)"
     ]
   }
 }
