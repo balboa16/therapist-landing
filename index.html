@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гульмира Базарбаева — Врач-психотерапевт в Бишкеке</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2D5A7B;
+            --primary-dark: #1E3D5C;
+            --secondary: #4A9B8C;
+            --secondary-light: #6BB5A6;
+            --accent: #E8B86D;
+            --text: #2C3E50;
+            --text-light: #5D6D7E;
+            --bg-light: #F8FAFB;
+            --bg-warm: #FDF9F3;
+            --white: #FFFFFF;
+            --shadow: 0 4px 20px rgba(45, 90, 123, 0.12);
+            --shadow-lg: 0 10px 40px rgba(45, 90, 123, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.7;
+            background: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-warm) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 155, 140, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .trust-badge::before {
+            content: '✓';
+            background: var(--secondary);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 35px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Merriweather', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 450px;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='30' r='18' fill='rgba(255,255,255,0.3)'/%3E%3Cpath d='M25 90 Q50 50 75 90' fill='rgba(255,255,255,0.3)'/%3E%3C/svg%3E") center/60% no-repeat;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .floating-card.reviews {
+            bottom: 30px;
+            left: -30px;
+        }
+
+        .floating-card.experience {
+            top: 30px;
+            right: -20px;
+        }
+
+        .floating-card-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .floating-card-text strong {
+            display: block;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+        }
+
+        .floating-card-text span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-label {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--bg-light);
+            padding: 35px 30px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .problem-card:hover {
+            background: var(--white);
+            border-color: var(--secondary-light);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Why Me Section */
+        .why-me {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='80' cy='20' r='40' fill='rgba(255,255,255,0.03)'/%3E%3Ccircle cx='20' cy='80' r='30' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+        }
+
+        .why-me .section-label {
+            color: var(--accent);
+        }
+
+        .why-me .section-header h2 {
+            color: var(--white);
+        }
+
+        .why-me .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievement {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .achievement:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+        }
+
+        .achievement-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+
+        .achievement h3 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            color: var(--white);
+        }
+
+        .achievement p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Credentials */
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .credential {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+        }
+
+        .credential::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: white;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: var(--bg-warm);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pricing-card.popular {
+            border: 3px solid var(--secondary);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 2px solid var(--bg-light);
+            margin-bottom: 25px;
+        }
+
+        .pricing-name {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .pricing-price {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .pricing-description {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--secondary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .pricing-card.popular .btn-primary {
+            background: var(--secondary);
+        }
+
+        .pricing-card.popular .btn-primary:hover {
+            background: var(--secondary-light);
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .pricing-note strong {
+            color: var(--primary);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 45px;
+            left: 12%;
+            right: 12%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 25px;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 5rem;
+            color: var(--secondary-light);
+            opacity: 0.2;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-rating {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary-dark);
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--bg-light);
+            padding: 25px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            gap: 20px;
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .faq-toggle {
+            width: 35px;
+            height: 35px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--primary);
+            color: white;
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 20px;
+        }
+
+        .faq-answer p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Contact Form */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-warm) 100%);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-item span {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .contact-form-wrapper {
+            background: var(--white);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid var(--bg-light);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .form-note a {
+            color: var(--primary);
+        }
+
+        /* Guarantee */
+        .guarantee {
+            background: var(--secondary);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .guarantee-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .guarantee h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .guarantee p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-about p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--bg-light);
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 450px;
+            animation: modalSlide 0.3s ease;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 25px;
+            color: white;
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .hero-subtitle {
+                margin: 0 auto 30px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .achievements-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image-placeholder {
+                max-width: 300px;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+            }
+
+            .guarantee {
+                padding: 35px 25px;
+                margin-top: -30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credentials {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Гульмира <span>Базарбаева</span></a>
+                <nav>
+                    <a href="#problems">С чем работаю</a>
+                    <a href="#why-me">Обо мне</a>
+                    <a href="#pricing">Тарифы</a>
+                    <a href="#testimonials">Отзывы</a>
+                    <a href="#contact">Записаться</a>
+                </nav>
+                <div class="mobile-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#problems" onclick="toggleMobileMenu()">С чем работаю</a>
+            <a href="#why-me" onclick="toggleMobileMenu()">Обо мне</a>
+            <a href="#pricing" onclick="toggleMobileMenu()">Тарифы</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()">Отзывы</a>
+            <a href="#contact" onclick="toggleMobileMenu()">Записаться</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="trust-badge">Врач-психотерапевт РЦПЗ</div>
+                    <h1>Верну вам <span>спокойствие</span> и радость жизни</h1>
+                    <p class="hero-subtitle">Врач-психотерапевт Республиканского центра психического здоровья. Помогаю справиться с тревогой, депрессией, паническими атаками и стрессом. Очно в Бишкеке и онлайн.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">РЦПЗ</div>
+                            <div class="stat-label">место работы</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">пациентов</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Онлайн</div>
+                            <div class="stat-label">и очно</div>
+                        </div>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Записаться на консультацию</a>
+                        <a href="#pricing" class="btn btn-secondary">Узнать стоимость</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-placeholder">
+                        <span style="position: relative; z-index: 1;">Фото специалиста</span>
+                    </div>
+                    <div class="floating-card reviews">
+                        <div class="floating-card-icon">⭐</div>
+                        <div class="floating-card-text">
+                            <strong>4.9 из 5</strong>
+                            <span>230+ отзывов</span>
+                        </div>
+                    </div>
+                    <div class="floating-card experience">
+                        <div class="floating-card-icon">🏥</div>
+                        <div class="floating-card-text">
+                            <strong>Врач РЦПЗ</strong>
+                            <span>Психотерапевт</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">С чем я работаю</span>
+                <h2>Запросы, с которыми ко мне обращаются</h2>
+                <p>Как врач-психотерапевт РЦПЗ, я помогаю людям справиться с различными психическими состояниями и жизненными трудностями</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😰</div>
+                    <h3>Тревога и панические атаки</h3>
+                    <p>Постоянное беспокойство, страхи, ощущение что вот-вот случится что-то плохое. Научу управлять тревогой и жить спокойно.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💔</div>
+                    <h3>Кризис в отношениях</h3>
+                    <p>Конфликты с партнёром, непонимание, охлаждение чувств или болезненное расставание. Помогу разобраться и найти выход.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🌪️</div>
+                    <h3>Жизненные кризисы</h3>
+                    <p>Потеря смысла, выгорание, сложные решения, возрастные кризисы. Вместе найдём новые опоры и направление.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">😔</div>
+                    <h3>Депрессия и апатия</h3>
+                    <p>Нет сил и желания что-либо делать, всё кажется бессмысленным. Мягко выведу из этого состояния.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">👥</div>
+                    <h3>Низкая самооценка</h3>
+                    <p>Неуверенность в себе, страх осуждения, сложности в общении. Помогу увидеть свою ценность и обрести уверенность.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔄</div>
+                    <h3>Повторяющиеся паттерны</h3>
+                    <p>Одни и те же проблемы в разных отношениях и ситуациях. Найдём корень и изменим сценарий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Me Section -->
+    <section class="why-me" id="why-me">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Почему выбирают меня</span>
+                <h2>Профессиональная помощь в РЦПЗ</h2>
+                <p>Врач-психотерапевт с опытом работы в ведущем психиатрическом учреждении страны</p>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement">
+                    <div class="achievement-icon">🏥</div>
+                    <h3>РЦПЗ</h3>
+                    <p>работа в Республиканском центре психического здоровья</p>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">👨‍👩‍👧‍👦</div>
+                    <h3>1000+</h3>
+                    <p>пациентов получили квалифицированную помощь</p>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">📞</div>
+                    <h3>Горячая линия</h3>
+                    <p>опыт работы на линии психологической помощи в пандемию</p>
+                </div>
+                <div class="achievement">
+                    <div class="achievement-icon">💻</div>
+                    <h3>Онлайн</h3>
+                    <p>дистанционные консультации для удобства пациентов</p>
+                </div>
+            </div>
+            <div class="credentials">
+                <div class="credential">Врач-психотерапевт</div>
+                <div class="credential">Сотрудник РЦПЗ</div>
+                <div class="credential">Диагностика психических расстройств</div>
+                <div class="credential">Кризисная психологическая помощь</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Стоимость</span>
+                <h2>Выберите подходящий формат работы</h2>
+                <p>Прозрачные цены без скрытых платежей. Оплата после консультации.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Базовый</h3>
+                        <div class="pricing-price">5 000 <span>сом</span></div>
+                        <p class="pricing-description">Разовая консультация</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>1 консультация 60 минут</li>
+                        <li>Первичная диагностика состояния</li>
+                        <li>Рекомендации по дальнейшей работе</li>
+                        <li>Онлайн или очно на выбор</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Записаться</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Популярный выбор</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Стандарт</h3>
+                        <div class="pricing-price">22 000 <span>сом</span></div>
+                        <p class="pricing-description">Экономия 3 000 сом</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>5 консультаций по 60 минут</li>
+                        <li>WhatsApp поддержка между сессиями</li>
+                        <li>Практические упражнения</li>
+                        <li>Онлайн или очно на выбор</li>
+                        <li>Гибкий график записи</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Записаться</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Премиум</h3>
+                        <div class="pricing-price">40 000 <span>сом</span></div>
+                        <p class="pricing-description">Экономия 10 000 сом</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>10 консультаций по 60 минут</li>
+                        <li>WhatsApp поддержка 24/7</li>
+                        <li>Индивидуальный план терапии</li>
+                        <li>Домашние задания с обратной связью</li>
+                        <li>Приоритетная запись</li>
+                        <li>1 экстренная сессия в подарок</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-secondary">Записаться</a>
+                </div>
+            </div>
+            <p class="pricing-note">
+                <strong>Первая консультация — знакомство.</strong> Если после неё вы почувствуете, что мы не подходим друг другу, я верну вам деньги.
+            </p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Как проходит работа</span>
+                <h2>Простой путь к изменениям</h2>
+                <p>От первого шага до устойчивого результата</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Заявка</h3>
+                    <p>Заполните форму или напишите в WhatsApp. Отвечу в течение 2 часов.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Знакомство</h3>
+                    <p>На первой встрече обсудим ваш запрос и определим цели терапии.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Терапия</h3>
+                    <p>Регулярные сессии с домашними заданиями для закрепления результата.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Результат</h3>
+                    <p>Вы получаете инструменты для самостоятельной работы над собой.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Отзывы</span>
+                <h2>Что говорят мои клиенты</h2>
+                <p>Реальные истории людей, которые прошли терапию</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Пришла с паническими атаками, которые мучили меня 3 года. После 8 сессий с Гульмирой Кадыракуновной они полностью прекратились. Но главное — я поняла их причину и теперь знаю, как не допустить возвращения. Безмерно благодарна за возвращённое качество жизни.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">МК</div>
+                        <div class="author-info">
+                            <h4>Марина К.</h4>
+                            <span>38 лет, маркетолог</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Обратился в период сильного стресса на работе — не мог спать, постоянная тревога. Гульмира Кадыракуновна помогла разобраться в причинах и научила техникам, которые реально работают. Уже через месяц почувствовал себя другим человеком. Рекомендую всем, кто столкнулся с подобным.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АД</div>
+                        <div class="author-info">
+                            <h4>Андрей Д.</h4>
+                            <span>45 лет, предприниматель</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">Долго не решалась обратиться к психотерапевту — казалось, что справлюсь сама. Но депрессия только усиливалась. Гульмира Кадыракуновна создала такую атмосферу доверия, что я смогла открыться. Её профессионализм и чуткость помогли мне вернуться к нормальной жизни.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ОС</div>
+                        <div class="author-info">
+                            <h4>Ольга С.</h4>
+                            <span>52 года, врач</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Вопросы и ответы</span>
+                <h2>Частые вопросы</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Как понять, что мне нужен психотерапевт?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Если вы чувствуете, что не справляетесь самостоятельно: тревога не отпускает, отношения не ладятся, нет сил и мотивации — это сигнал обратиться за помощью. Психотерапия — это не признак слабости, а инвестиция в качество своей жизни.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Сколько сессий нужно для результата?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Зависит от запроса. Для работы с конкретной проблемой (тревога, решение) обычно достаточно 5-10 сессий. Глубинная работа с паттернами и травмами требует от 3 месяцев. На первой встрече мы обсудим реалистичные сроки для вашей ситуации.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Вы работаете онлайн?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, провожу сессии онлайн через Zoom или WhatsApp видеозвонок. По эффективности онлайн-терапия не уступает очной — это подтверждено исследованиями. Главное — обеспечить приватность во время сессии.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Всё, что я расскажу, останется конфиденциальным?</h3>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Абсолютно. Конфиденциальность — основа терапии. Я не обсуждаю пациентов ни с кем, включая членов семьи. Исключение — ситуации угрозы жизни, о чём я предупреждаю заранее. Это профессиональный этический кодекс врача-психотерапевта.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Запишитесь на консультацию</h2>
+                    <p>Сделайте первый шаг к изменениям. Заполните форму, и я свяжусь с вами в течение 2 часов, чтобы подобрать удобное время.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <span>0557 27 27 41</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💬</div>
+                            <span>WhatsApp: 0557 27 27 41</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🏥</div>
+                            <span>РЦПЗ — Республиканский центр психического здоровья</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <span>г. Бишкек, ул. Байтик Баатыра, 1а</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" required placeholder="Как к вам обращаться?">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="0XXX XX XX XX">
+                        </div>
+                        <div class="form-group">
+                            <label for="tariff">Интересующий тариф</label>
+                            <select id="tariff" name="tariff">
+                                <option value="base">Базовый — 5 000 сом</option>
+                                <option value="standard" selected>Стандарт — 22 000 сом</option>
+                                <option value="premium">Премиум — 40 000 сом</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Кратко опишите ваш запрос</label>
+                            <textarea id="message" name="message" placeholder="Что вас беспокоит? С чем хотите поработать?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary form-submit">Записаться на консультацию</button>
+                        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <div class="container">
+        <div class="guarantee">
+            <div class="guarantee-icon">🛡️</div>
+            <h3>Гарантия возврата денег</h3>
+            <p>Если после первой консультации вы почувствуете, что мы не подходим друг другу — я верну вам полную стоимость. Без вопросов и объяснений. Ваш комфорт важнее.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Гульмира Базарбаева</h3>
+                    <p>Врач-психотерапевт Республиканского центра психического здоровья (РЦПЗ). Помогаю людям справиться с тревогой, депрессией, паническими атаками и стрессом. Работаю очно в Бишкеке и онлайн.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <a href="#problems">С чем работаю</a>
+                    <a href="#why-me">Обо мне</a>
+                    <a href="#pricing">Тарифы</a>
+                    <a href="#testimonials">Отзывы</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Контакты</h4>
+                    <a href="tel:0557272741">0557 27 27 41</a>
+                    <a href="#">WhatsApp: 0557 27 27 41</a>
+                    <a href="#">РЦПЗ, ул. Байтик Баатыра, 1а</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Гульмира Базарбаева. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h3>Заявка отправлена!</h3>
+            <p>Спасибо за обращение. Я свяжусь с вами в течение 2 часов для подтверждения записи.</p>
+            <button class="btn btn-primary" onclick="closeModal()">Хорошо</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // FAQ toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+
+            // Here you would typically send data to your server
+            console.log('Form submitted:', data);
+
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+
+            // Reset form
+            event.target.reset();
+        }
+
+        // Close modal
+        function closeModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Close modal on outside click
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.problem-card, .achievement, .pricing-card, .testimonial, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
